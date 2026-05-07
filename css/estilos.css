@@ -1,0 +1,73 @@
+/* estilos generales*/
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	display: block;
+	background-image: url(../img/fondo.png);
+}
+
+#contenedor {
+	display: block;
+	width: 100%;
+	max-width: 960px;
+	margin: 0 auto;	
+	padding: 1rem;
+	background-color: rgba(200, 100, 0, 0.9);
+	color: whitesmoke;
+	text-align: center;
+}
+
+header {
+	margin: 1rem;
+	padding: 1rem;
+	border: solid 1px whitesmoke;
+	background-color: rgba(60, 0, 50, 0.6);
+}
+
+main {
+	margin: 1rem;
+	padding: 1rem;
+	border: solid 1px whitesmoke;
+	font-family: Federo;
+}
+
+footer {
+	margin: 1rem;
+	padding: 1rem;
+	border: solid 1px whitesmoke;
+	background-color: rgba(60, 0, 50, 0.6);
+}
+
+h1, h2, h3 {
+	font-family: Lato;
+	color: lightyellow;
+}
+
+/*estilos del navegador*/
+nav {
+	margin: 1rem;
+	padding: 0;
+}
+
+nav ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+nav li {
+	display: inline-block;
+}
+
+nav a {
+}
+
+/*pseudo-clases para los link de navegador (REPASAR)*/
+:link
+:hover 
+:active;
+:visited
