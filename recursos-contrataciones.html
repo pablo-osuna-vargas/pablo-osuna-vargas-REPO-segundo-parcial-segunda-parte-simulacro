@@ -6,7 +6,7 @@
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
 	<link href="css/estilos.css" rel="stylesheet">
-	<title>Refik Anadol - Recursos y contrataciones</title>
+	<title>Refik Anadol - Recursos y visitas</title>
 </head>
 
 <body>
@@ -23,13 +23,54 @@
 		</header>
 
 		<main>
-			<section></section>
+			<form>
+				<fieldset id="cantObras">
+					<legend>Ingreso de datos</legend>
+						<label for="cantObras">Cantidad:</label>
+						<input type="number" name="cantidad" id="cantidad">
+							<br>
+						<button type="button" id="cargarCantidad">Cargar Cantidad</button>
+				</fieldset>
+
+				<fieldset id="obra" disabled>
+					<legend>Obra</legend>
+						<label for="titulo">Título:</label>
+						<input type="text" name="titulo" id="titulo">
+							<br>
+						<label for="cantPantXdia">Cantidad de pantallas x día:</label>
+						<input type="number" name="cantPantXdia" id="cantPantXdia">
+							<br>
+						<label for="costoPantXdia">Costo x pantalla x día:</label>
+						<input type="number" name="costoPantXdia" id="costoPantXdia">
+							<br>
+						<button type="button" id="cargarObra">Cargar Obra</button>
+				</fieldset>
+
+				<fieldset id="visitas" disabled>
+					<legend>Visitas</legend>
+					<label for="visitasXdia">Cant. de visitante x día:</label>
+					<input type="number" name="visitasXdia" id="visitasXdia">
+						<br>
+					<label for="precioEntrada">Precio de entrada:</label>
+					<input type="number" name="precioEntrada" id="precioEntrada">
+						<br>
+					<button type="button" id="cargarVisitas">Cargar Visitas</button>
+				</fieldset>
+
+				<button type="submit" id="enviarFormulario" disabled>Enviar Datos</button>
+			</form>
+
+			<button type="button" id="reset">Recargar Página</button>
+
+			<div id="resumen"></div>
 		</main>
 
 		<footer class="centrado">
 				<p>Para contactarse escribir a <a href="refik@artedigital.com">refik@artedigital.com</a></p>
 		</footer>
 	</div>
+
+	<script src="js/script-ejercicio.js"></script>
 
 </body>
 </html>
