@@ -93,6 +93,11 @@ button {
 	padding: 1rem;
 }
 
+form, form legend, form label {
+	margin: 0.5rem;
+	padding: 0.5rem;
+}
+
 footer {
 	margin: 0.5rem;
 	padding: 0.5rem;

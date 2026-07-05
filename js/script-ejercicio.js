@@ -10,6 +10,8 @@ let botonEnviarForm = document.querySelector("#enviarFormulario");
 let botonRecargarPag = document.querySelector("#reset");
 
 let cantidad;
+let visitasXdia;
+let precioEntrada;
 
 // 1.botón cargar cantidad, habilita obra //
 botonCantidad.addEventListener("click", function(e){
@@ -71,8 +73,8 @@ botonCargarObra.addEventListener("click", function(e){
 // 3.botón cargar visitas, habilita envío formulario //
 botonCargarVisitas.addEventListener("click", function(e){
 e.preventDefault();
-let visitasXdia = Number(document.querySelector("#visitasXdia").value);
-let precioEntrada = Number(document.querySelector("#precioEntrada").value);
+visitasXdia = Number(document.querySelector("#visitasXdia").value);
+precioEntrada = Number(document.querySelector("#precioEntrada").value);
 
 	if(visitasXdia <= 0 || isNaN(visitasXdia)) {
 		alert("ingresá una cantidad de visitantes esperada por día");
@@ -84,18 +86,45 @@ let precioEntrada = Number(document.querySelector("#precioEntrada").value);
 		return;
 	}
 
-	document.querySelector("#enviarFormulario");
+	document.querySelector("#enviarFormulario").disabled = false;
 });
 
 // 4.botón enviar formulario //
-// aqui las variables para operar //
-botonEnviarForm.addEventListener("click", function (){
+botonEnviarForm.addEventListener("click", function (e){
+	e.preventDefault();
 	calcular();
 	salida.style.display = "block";
 })
 
 // aqui la definicion de function //
 function calcular() {
-	// aqui las operaciones //
-salida.innerHTML = `//aqui todo el HTML porque es un <div>`;
+
+	let totalPant = 0;
+	let totalXdia = 0;
+	let obraMayorCosto = arrayObras[0];
+
+	arrayObras.forEach(function(objeto){
+		totalPant += objeto.cantPantXdia;
+		totalXdia += objeto.cantPantXdia * objeto.costoPantXdia;
+
+		if(objeto.costoPantXdia > obraMayorCosto.costoPantXdia) {
+			obraMayorCosto = objeto;
+		}
+	})
+
+	let costoXmes = totalXdia * 30;
+	let ganancia = ((visitasXdia * precioEntrada) * 30) - costoXmes;
+	let obraMayorCostoXmes = (obraMayorCosto.cantPantXdia * obraMayorCosto.costoPantXdia) * 30;
+	
+	salida.innerHTML = `<h4>Resumen</h4>
+						<ul>
+							<li>Costo total de Pantallas x mes: $${costoXmes}</li>
+							<li>Ganancia esperada x mes: $${ganancia}</li>
+							<li>Obra de mayor costo x día es: ${obraMayorCosto.titulo}, con un costo mensua de: $${obraMayorCostoXmes}</li>
+						</ul>`;
 }
+
+let recargar = document.querySelector("#reset");
+recargar.addEventListener("click", function() {
+    location.reload();
+});
